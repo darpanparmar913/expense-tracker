@@ -1,0 +1,11 @@
+- design pages  =>  input fields : name, amount & category || data table || signUp & signIn || show chart design - 2.30 H 
+
+- func for data table =>  sort , filter, total amount spent - set & get loalstorage || edit page & delete expenses || signUp & signIn - set & get loalstorage -  3.30 H
+
+- signUp & signIn => Only show that user Data. - 30 M
+
+- amount spent => break it down by category. - 30 M
+
+- API currency => API for real-time currency conversion. - 30 M
+
+

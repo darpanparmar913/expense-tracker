@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="chartPage.html">Expense Traker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pageManu_list" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewExpanse.html">View Expense</a>
+                    </li>
+                </ul>
+                <a class="btn close_btn" type="button" onclick="logOut()">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- input fields -->
+    <section>
+        <div class="container mt-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <button class="btn addExpanse_btn color-white" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Add Expanse</button>
+
+                <h2>Total Expanse : <span id="total_heading"></span>₹</h2>
+            </div>
+
+            <!-- Add Expanse Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="Expense_form" onsubmit="event.preventDefault()">
+                                <div class="mb-3 col-12 my-5">
+                                    <input type="name" name="Exname" class="form-control" placeholder="Enter Name" id="ExName"
+                                        aria-describedby="emailHelp" />
+                                </div>
+                                <div class="mb-3 col-12 my-5">                                    
+                                    <input type="number" name="ExAmount" class="form-control" placeholder="Enter Amount"
+                                        id="ExAmount" />
+                                </div>
+                                <div class="mb-3 col-12 my-5">
+                                    <input type="date" name="Exdate" class="form-control" placeholder="Enter Date" id="ExDate" />
+                                </div>
+                                <div class="mb-3 col-12 my-5">
+                                    <select class="form-select" name="Excategory" aria-label="Default select example" id="ExCategory">
+                                        <option value="0">Select category</option>
+                                        <option name="cate" value="Groceries">Groceries</option>
+                                        <option name="cate" value="Transportation">Transportation</option>
+                                        <option name="cate" value="Entertainment">Entertainment</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <input type="submit" class="btn addExpanse_btn" value="Add Expense" onclick="addExpanse()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Expanse Modal -->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit_form" onsubmit="event.preventDefault()">
+                                <div class="mb-3 col-12">
+                                    <label for="exampleInputEmail1" class="form-label">Id</label>
+                                    <input type="name" class="form-control" placeholder="Enter Name" id="EditId"
+                                        aria-describedby="emailHelp" disabled/>
+                                </div>
+                                <div class="mb-3 col-12 my-4">
+                                    <input type="name" name="editName" class="form-control" placeholder="Enter Name" id="EditInputName"
+                                        aria-describedby="emailHelp" />
+                                </div>
+                                <div class="mb-3 col-12 my-4">
+                                    <input type="number" name="editAmount" class="form-control" placeholder="Enter Amount"
+                                        id="EditInputAmount" />
+                                </div>
+                                <div class="mb-3 col-12 my-4">
+                                    <input type="date" name="editDate" class="form-control" placeholder="Enter Date" id="EditInputDate" />
+                                </div>
+                                <div class="mb-3 col-12 my-4">
+                                    <select class="form-select" name="editCategory" aria-label="Default select example" id="EditInputCategory">
+                                        <option value="0">Select category</option>
+                                        <option name="cate" value="Groceries">Groceries</option>
+                                        <option name="cate" value="Transportation">Transportation</option>
+                                        <option name="cate" value="Entertainment">Entertainment</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="submit" class="btn addExpanse_btn" value="Edit" onclick="EditExpanse()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Expense Name</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataPrint">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5" style="text-align: center;">Expense Data Table</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Js/script.js"></script>
+    <script>
+
+		// let logOutUser = JSON.parse(localStorage.getItem('currantUser'));
+
+		// if (!logOutUser) {
+		// 	window.location.href = "signIn.html"
+		// }
+
+	</script>
+</body>
+
+</html>

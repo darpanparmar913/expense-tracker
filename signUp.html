@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+
+    <section class="signUp_section">
+        <div class="signUp">
+            <div class="signUp_heading text-center">
+                <h2>Register For An Account</h2>
+            </div>
+            <form id="register-form" class="signUp_form mt-5" onsubmit="event.preventDefault()">
+                <div class="mb-3 has-validation">
+                    <input type="name" class="form-control my-4" name="name" placeholder="Username" id="UserName"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control my-4" name="userEmail" placeholder="E-mail" id="UserEmail"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control my-4" name="password" placeholder="Password" id="UserPassword">
+                </div>
+                <div class="reg_account  my-3">
+                    <h6><a href="signIn.html">Already Have Account ?</a></h6>
+                </div>
+                <input type="submit" class="btn btn-primary signUp_btn" value="Sign Up" onclick="signUpfunc()" />
+            </form>
+        </div>
+        
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <script src="Js/script.js"></script>
+
+    <script>
+
+        let goTosignIn = JSON.parse(localStorage.getItem('currantUser'));
+        if (goTosignIn) {
+            window.location.href = "chartPage.html"
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

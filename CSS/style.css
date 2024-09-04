@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.container {
+    max-width: 1390px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+:root {
+    --primary-color: #001529;
+    --color: #ffffff;
+    --btn-color: #1890ff;
+}
+
+#total_heading {
+    color: #d6200f;
+}
+
+nav {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+}
+
+.pageManu_list ul li {
+    list-style: none;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-brand {
+    color: var(--color) !important;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.navbar-light .navbar-toggler-icon,
+.navbar-light .navbar-toggler {
+    background-color: #ffffff;
+}
+
+.addExpanse_btn,
+.signUp_btn {
+    background-color: #1c1c1c !important;
+    border: 0 !important;
+    border-radius: 2px !important;
+    color: #ffffff !important;
+}
+
+.addExpanse_btn:hover,
+.signUp_btn:hover {
+    background-color: #000000 !important;
+}
+
+.dataTables_wrapper {
+    margin-top: 35px !important;
+}
+
+/* sign up form css ------------------------------------------------------------------ */
+.signUp_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../image/sl_020622_4930_39.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.signUp_section::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #d7e7ff;
+    opacity: 0.7;
+}
+
+.signUp_form {
+    padding: 30px;
+    border-radius: 7px;
+    background-color: #ffffff45;
+    box-shadow: 4px 4px 8px #0000007c;
+}
+
+.signUp_heading {
+    font-size: 40px;
+}
+
+.signUp_form .signUp_label {
+    color: var(--color);
+}
+
+.form-control {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-bottom: 2px solid #001529 !important;
+    border-radius: 0 !important;
+    position: relative;
+}
+
+#UserName-error,
+#UserEmail-error,
+#UserPassword-error,
+#UserNameForSignIN-error,
+#UserPasswordForSignIN-error
+ {
+    font-size: 14px;
+    color: #ff0000;
+    position: absolute;
+    margin-top: -26px;
+}
+#ExAmount-error,
+#ExDate-error,
+#ExName-error,
+#ExCategory-error,
+#EditInputName-error,
+#EditInputAmount-error,
+#EditInputDate-error,
+#EditInputCategory-error{
+    font-size: 14px;
+    color: #ff0000;
+    position: absolute;
+    margin-top: -1px;
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.signUp {
+    width: 500px;
+    z-index: 1;
+}
+#wrong_pass{
+    text-align: center;
+    color: red;
+    margin-top: -12px;
+}
+.reg_account h6 {
+    color: #315b83;
+    margin-right: 5px;
+}
+
+.reg_account h6 a {
+    color: #315b83;
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+
+#warning {
+    color: #d6200f;
+}
+
+/* chart css ------------------------------------------------------------------------------ */
+#myChart {
+    max-width: 100%;
+}
+
+/* table css ------------------------------------------------------------------------------ */
+.btn_group {
+    display: flex;
+    gap: 15px;
+}
+
+.deleteBtn,
+.editBtn {
+    border: 0;
+    background-color: transparent;
+}
+
+.deleteBtn {
+    color: #d6200f !important;
+}
+
+.editBtn {
+    color: #0a7518;
+}
+
+.close_btn {
+    background-color: #ff6a6a !important;
+    color: var(--color) !important;
+    border-radius: 2px !important;
+}
+
+/* chart bg css---------------------------------------------------------------------------- */
+
+.chart_class #myChart {
+    box-shadow: 0px 2px 11px #00152978;
+    border-radius: 7px;
+}
+
+.chart_box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.main_box {
+    text-align: center;
+    box-shadow: 0px 2px 8px #00000036;
+    border-radius: 2px;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.main_box .box_heading {
+    color: #ebb0af;
+}
+
+.box_name {
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.dataTables_wrapper {
+    box-shadow: 0px 2px 8px #00000036;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+tr.odd {
+    background-color: #dee9ff !important;
+}
+
+
+.chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: #f1f6f9;
+}
+
+.swal2-confirm {
+    background-color: #1890ff !important;
+}
+
+.chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartBox {
+    width: 70%;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 2px 8px #00000036;
+}
